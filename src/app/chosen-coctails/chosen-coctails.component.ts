@@ -13,8 +13,22 @@ export class ChosenCoctailsComponent implements OnInit {
 
   ngOnInit() {
     this.drinkProvider.drinkEmitter.subscribe((coctail) => {
-      this.chosenCoctails.push(coctail);
-    });
+      let isNew = true;
+      this.chosenCoctails.map(drink => {
+       if (drink.name === coctail.name) {
+        drink.quantity++;
+        isNew = false;
+       }
+      });
+      if (isNew) {
+       coctail.quantity = 1;
+       this.chosenCoctails.push(coctail);
+      }
+     });
+
+    // this.drinkProvider.drinkEmitter.subscribe((coctail) => {
+    //   this.chosenCoctails.push(coctail);
+    // });
 
   }
 
