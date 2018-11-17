@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DrinkProviderService } from '../drink-provider.service';
 
 @Component({
   selector: 'app-chosen-coctails',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChosenCoctailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private drinkProvider: DrinkProviderService) { }
+  chosenCoctails = [];
 
   ngOnInit() {
+    this.drinkProvider.drinkEmitter.subscribe((coctail) => {
+      this.chosenCoctails.push(coctail);
+    });
+
   }
 
 }

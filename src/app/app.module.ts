@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { ChosenCoctailsComponent } from './chosen-coctails/chosen-coctails.component';
 import { SumaryComponent } from './sumary/sumary.component';
 import { DataProviderService } from './data-provider.service';
+import { DrinkProviderService } from './drink-provider.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { DataProviderService } from './data-provider.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [DataProviderService],
+  providers: [DataProviderService, DrinkProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

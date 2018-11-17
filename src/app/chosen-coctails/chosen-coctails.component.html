@@ -1,1 +1,8 @@
-<section class= "chosen-coctail"></section>
+<section class= "chosen-coctail">
+  <p class = "title"> Chosen Coctails:</p>
+    <ul class="coctaol-list">
+    <li class = "coctail-list-item" *ngFor = "let coctail of chosenCoctails">
+      <p>{{coctail?.name}}{{coctail?.imgSrc}}</p>
+    </li>
+  </ul>
+</section>
