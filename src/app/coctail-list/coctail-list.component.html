@@ -1,10 +1,9 @@
 <section class= "coctail-list">
-  <ul class="coctaol-list">
+  <ul class="coctail-list">
     <li class = "coctail-list-item" *ngFor = "let coctail of coctailList">
       <p>{{coctail?.name}}</p>
       <span *ngFor= "let ingredient of coctail.ingredients, let i =index">{{i != 0 ? ',' : ''}} {{ingredient.name}}</span>
       <button class="add-coctail-button" (click)="addCoctail(coctail)">+</button>
-
     </li>
   </ul>
 </section>

@@ -1,1 +1,11 @@
-<section class= "summary"></section>
+<section class= "summary">
+
+  <p> Drinking summary: </p>
+  <p>Purchased drinks and cooctails:</p>
+  <ul class="coctail-list">
+    <li class = "coctail-list-item" *ngFor = "let ingredient of ingredients">
+      <p>{{ingredient.name}}</p>
+      <p>Volume: {{ingredient.volume}}, Ethanol[%]: {{ingredient.ethanolPercentage}}, Price: {{ingredient.pricePerUnit}}</p>
+    </li>
+  </ul>
+</section>

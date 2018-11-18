@@ -1,3 +1,6 @@
+import { ChosenCoctailsComponent } from './../chosen-coctails/chosen-coctails.component';
+import { PaySummaryService } from './../pay-summary.service';
+import { DrinkProviderService } from './../drink-provider.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SumaryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private drinkProvider: DrinkProviderService, private paySummary: PaySummaryService) { }
+
+  coctailList = '';
+  ingredients = [];
+  cost = '';
+  ethanolMass = '';
+
 
   ngOnInit() {
-  }
+
+      this.drinkProvider.coctailListEmitter.subscribe(chosenCoctails => {
+        this.coctailList = this.paySummary.getDrinkList(chosenCoctails);
+        this.ingredients = this.paySummary.calculateIngredients(chosenCoctails);
+        this.cost = this.paySummary.calculateCost(this.ingredients);
+        this.ethanolMass = this.paySummary.calculateEthanolMass(this.ingredients);
+      });
+    }
 
 }

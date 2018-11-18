@@ -9,6 +9,7 @@ import { ChosenCoctailsComponent } from './chosen-coctails/chosen-coctails.compo
 import { SumaryComponent } from './sumary/sumary.component';
 import { DataProviderService } from './data-provider.service';
 import { DrinkProviderService } from './drink-provider.service';
+import { PaySummaryService } from './pay-summary.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { DrinkProviderService } from './drink-provider.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [DataProviderService, DrinkProviderService],
+  providers: [DataProviderService, DrinkProviderService, PaySummaryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

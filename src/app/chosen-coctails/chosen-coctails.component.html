@@ -2,7 +2,11 @@
   <p class = "title"> Chosen Coctails:</p>
     <ul class="coctaol-list">
     <li class = "coctail-list-item" *ngFor = "let coctail of chosenCoctails">
-      <p>{{coctail?.name}} </p>
+      <p>{{coctail?.name}} {{coctail?.quantity}}</p>
+      <button class="add-coctail-button" (click)="increaseQuantity(coctail)">+</button>
+      <button class="add-coctail-button" (click)="decraseQuantity(coctail)">-</button>
     </li>
+
   </ul>
+  <button class="add-coctail-button" (click)="sumUp()">Sum up!</button>
 </section>
